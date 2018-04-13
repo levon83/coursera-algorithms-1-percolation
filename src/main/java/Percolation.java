@@ -33,7 +33,7 @@ public class Percolation {
     /**
      * Number of open sites.
      */
-    private int openSitesCont;
+    private int openSitesCount;
 
     /**
      * Initialize n-by-n grid.
@@ -50,7 +50,7 @@ public class Percolation {
         this.openSites = new WeightedQuickUnionUF(this.maxSites);
         this.fullSites = new WeightedQuickUnionUF(this.maxSites - 1);
         this.openedSites = new boolean[this.maxSites];
-        this.openSitesCont = 0;
+        this.openSitesCount = 0;
 
         setSiteOpen(0);
         setSiteOpen(this.maxSites - 1);
@@ -70,7 +70,7 @@ public class Percolation {
 
         if (!getSiteOpen(currentIndex)) {
             setSiteOpen(currentIndex);
-            this.openSitesCont++;
+            this.openSitesCount++;
 
             int leftIndex = leftSiteIndex(row, col);
             int aboveIndex = aboveSiteIndex(row, col);
@@ -142,7 +142,7 @@ public class Percolation {
      * @return the number of open sites
      */
     public int numberOfOpenSites() {
-        return this.openSitesCont;
+        return this.openSitesCount;
     }
 
     /**
